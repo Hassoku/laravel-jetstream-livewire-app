@@ -13,7 +13,7 @@ class Crud extends Component
     public function render()
     {
         $this->students = Student::all();
-        return view('livewire.crud');
+        return view('livewire.users.crud');
     }
 
     public function create()
@@ -42,7 +42,7 @@ class Crud extends Component
     {
         $this->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => ['required','email','unique:users'],
             'mobile' => 'required',
         ]);
 

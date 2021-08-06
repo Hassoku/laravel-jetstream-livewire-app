@@ -1,6 +1,4 @@
-<x-slot name="header">
-    <h2 class="text-center">Laravel 8 Livewire CRUD Demo</h2>
-</x-slot>
+
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
@@ -14,10 +12,11 @@
                 </div>
             </div>
             @endif
+
             <button wire:click="create()"
                 class="bg-blue-500 text-white font-bold py-2 px-4 rounded my-3">Create Student</button>
             @if($isModalOpen)
-            @include('livewire.create')
+            @include('livewire.users.create')
             @endif
             <table class="table-fixed w-full">
                 <thead>
@@ -46,6 +45,9 @@
                     @endforeach
                 </tbody>
             </table>
+
         </div>
+    </div>
+
     </div>
 </div>
