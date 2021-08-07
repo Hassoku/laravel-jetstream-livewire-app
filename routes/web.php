@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\Crud;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Admin\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::get('students', Crud::class);
+Route::get('admin', Dashboard::class);
 
