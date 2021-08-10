@@ -22,6 +22,9 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/pages', function () {
+    return view('pages');
+})->name('pages');
 
 
 Route::get('students', Crud::class);
