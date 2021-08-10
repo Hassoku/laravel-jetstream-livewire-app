@@ -11,11 +11,11 @@ class Categories extends Component
     public $image;
     public $openFormModal = false;
 
-    public function showForm(){
+    public function showModal(){
         $this->openFormModel = true;
     }
 
-    public function closeForm(){
+    public function closeModal(){
         $this->openFormModel = false;
     }
 
