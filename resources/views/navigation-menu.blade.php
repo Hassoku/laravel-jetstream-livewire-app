@@ -17,8 +17,13 @@
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('pages') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('pages') }}" :active="request()->routeIs('pages')">
                         {{ __('Pages') }}
+                    </x-jet-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('posts') }}" :active="request()->routeIs('posts')">
+                        {{ __('Posts') }}
                     </x-jet-nav-link>
                 </div>
             </div>
