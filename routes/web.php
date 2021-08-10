@@ -30,9 +30,38 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/posts', function () {
     return view('posts');
 })->name('posts');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/posts', function () {
-    return view('posts');
-})->name('posts');
+Route::middleware(['auth:sanctum', 'verified'])->get('/category', function () {
+    return view('category');
+})->name('category');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/settings', function () {
+    return view('settings');
+})->name('settings');
+
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/pages', function () {
+        return view('pages');
+    })->name('pages');
+
+    Route::get('/posts', function () {
+        return view('posts');
+    })->name('posts');
+
+    Route::middleware(['auth:sanctum', 'verified'])->get('/category', function () {
+        return view('category');
+    })->name('category');
+    
+    Route::get('/settings', function () {
+        return view('settings');
+    })->name('settings');
+       
+
+});
 
 
 
