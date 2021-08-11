@@ -17,6 +17,6 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         @livewireStyles
-
+<link href="{{ asset('css/tail.css') }}">
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+<script src="{{ mix('js/app.js') }}" defer></script>

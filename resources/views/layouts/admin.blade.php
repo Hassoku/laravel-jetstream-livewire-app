@@ -1,39 +1,43 @@
+<
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<head>
-   @include('layout.partials.head')
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
-</head>
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-
-<body class="bg-gray-800 font-sans leading-normal tracking-normal mt-12">
-
-    <!--Nav-->
- @include('layouts.partials.header')
-
-
-    <div class="flex flex-col md:flex-row">
-
-      
-
-        <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
-            <main>
-                {{ $slot }}
-            </main>
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        @livewireStyles
+        <link href="{{ asset('css/tail.css') }}" rel="stylesheet">
 
 
+        <script src="{{ mix('js/app.js') }}" defer></script>
 
+    </head>
+    <body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
+        <div class="min-h-screen flex">
+            <div class="py-12 px-10 w-1/4">
+            @include('layouts.partials.sidebar')
+            </div>
+            <div class="bg-indigo-50 flex-grow py-12 px-10">
 
+            </div>
         </div>
-    </div>
 
 
-    @include('layouts.partials.scripts')
 
-   @yield('scripts')
+
+
+
 
 
 </body>
 
 </html>
+

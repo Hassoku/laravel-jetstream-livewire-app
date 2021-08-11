@@ -36,8 +36,8 @@
                   </td>
                   <td class="px-4 py-3 text-sm border">6/4/2000</td>
                 </tr>
-             
-        
+
+
               </tbody>
             </table>
           </div>
@@ -46,17 +46,41 @@
       <x-jet-modal  wire:model="openFormModal">
         <div class="px-6 py-4">
             <div class="text-lg">
-            
+
             </div>
-    
-            <div class="mt-4">
-         
-            </div>
+
+
+                <div class="mt-8">
+                    <div class="mb-6">
+                        <label class="mr-4 text-gray-700 font-bold inline-block mb-2" for="name">Title</label>
+                        <input type="text" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"  wire:model="title" placeholder="Title" />
+                      </div>
+                      <div class="mb-6">
+                        <label class="mr-4 text-gray-700 font-bold inline-block mb-2"  for="name">Content</label>
+                        <input type="text" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"  wire:model="content" placeholder="Content" />
+                      </div>
+                      <div class="mb-6">
+                        <label class="mr-4 text-gray-700 font-bold inline-block mb-2"  for="name">Category</label>
+                        <input type="text" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"  wire:model="category" placeholder="Content" />
+                      </div>
+                      <div class="mb-6">
+                        <label class="mr-4 text-gray-700 font-bold inline-block mb-2"  for="name">Image</label>
+                        <input type="text" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"  placeholder="Content" />
+                      </div>
+                      <div class="mb-6">
+                        <x-jet-button wire:click="store">Add</x-jet-button>
+                      </div>
+
+                </div>
+
+
+
+
         </div>
-    
+
         <div class="px-6 py-4 bg-gray-100 text-right">
             <x-jet-button wire:click="closeModal">Close</x-jet-button>
         </div>
     </x-jet-modal>
-    
+
 </div>

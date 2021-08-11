@@ -10,8 +10,7 @@ class Pages extends Component
     public $openFormModal = false;
     public $title;
     public $content;
-
-
+   
     public function showModal(){
         $this->openFormModal = true;
     }
@@ -38,7 +37,7 @@ class Pages extends Component
         $this->resetForm();
         $this->closeModal();
 
-        
+
     }
     public function edit($id){
 
@@ -48,7 +47,7 @@ class Pages extends Component
         $page->content = $this->content;
         $this->showModal();
 
-    
+
 
     }
     public function delete($id){

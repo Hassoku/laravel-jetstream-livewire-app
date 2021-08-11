@@ -19,24 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-Route::middleware(['auth:sanctum', 'verified'])->get('/pages', function () {
-    return view('pages');
-})->name('pages');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/posts', function () {
-    return view('posts');
-})->name('posts');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/category', function () {
-    return view('category');
-})->name('category');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/settings', function () {
-    return view('settings');
-})->name('settings');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
@@ -55,11 +38,23 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::middleware(['auth:sanctum', 'verified'])->get('/category', function () {
         return view('category');
     })->name('category');
-    
+
     Route::get('/settings', function () {
         return view('settings');
     })->name('settings');
-       
+
+    Route::get('/admin/dashboard', function () {
+        return view('backend.dashboard');
+    })->name('admin.dashboard');
+
+    Route::get('/admin/posts', function () {
+        return view('backend.posts');
+    })->name('admin.posts');
+
+    Route::get('/admin/users', function () {
+        return view('backend.users');
+    })->name('admin.users');
+
 
 });
 
