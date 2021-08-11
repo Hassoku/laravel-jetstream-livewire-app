@@ -3,10 +3,11 @@
 namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Student;
-
+use Livewire\WithFileUploads;
 
 class Crud extends Component
 {
+    use WithFileUploads;
     public $students, $name, $email, $mobile, $student_id;
     public $isModalOpen = 0;
 

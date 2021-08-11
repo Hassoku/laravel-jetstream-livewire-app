@@ -10,7 +10,9 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <x-jet-button wire:click="changeStatus">status</x-jet-button>
 
-                {{-- <x-jet-welcome /> --}}
+
+
+               @livewire('dashboard')
             </div>
         </div>
     </div>

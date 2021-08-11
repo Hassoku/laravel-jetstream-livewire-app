@@ -3,20 +3,17 @@
 namespace App\Http\Livewire;
 
 use App\Models\Page;
+use App\Models\Modal;
 use Livewire\Component;
 
 class Pages extends Component
 {
-    public $openFormModal = false;
+
+    use Modal;
+
     public $title;
     public $content;
-   
-    public function showModal(){
-        $this->openFormModal = true;
-    }
-    public function closeModal(){
-        $this->openFormModal = false;
-    }
+
     public function render()
     {
         $pages = Page::all();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Post;
 use Livewire\Component;
 
 class Dashboard extends Component
@@ -14,8 +15,9 @@ class Dashboard extends Component
     }
     public function render()
     {
-         $s = $this->status;
+        $authors = Post::with('authors')->get();
 
-        return view('livewire.dashboard',['s'=>$s]);
+
+        return view('livewire.dashboard',['authors'=>$authors]);
     }
 }

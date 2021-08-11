@@ -14,7 +14,7 @@ class Categories extends Component
     public function showModal(){
 
         $this->openFormModel = true;
-        
+
     }
 
     public function closeModal(){

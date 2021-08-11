@@ -17,6 +17,7 @@
                 </tr>
               </thead>
               <tbody class="bg-white">
+                  @foreach($posts as $post)
                 <tr class="text-gray-700">
                   <td class="px-4 py-3 border">
                     <div class="flex items-center text-sm">
@@ -30,12 +31,31 @@
                       </div>
                     </div>
                   </td>
-                  <td class="px-4 py-3 text-ms font-semibold border">22</td>
+                  <td class="px-4 py-3 text-ms font-semibold border">{{ $post->title }}</td>
                   <td class="px-4 py-3 text-xs border">
-                    <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> Acceptable </span>
+                    <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm"> {{ $post->category_id }}</span>
                   </td>
-                  <td class="px-4 py-3 text-sm border">6/4/2000</td>
+                  <td class="px-4 py-3 text-sm border">{{ $post->content }}</td>
+                  <td class="px-4 py-3 text-sm border" ><x-jet-button wire:click="showMessageDialog">Delete</x-jet-button></td>
                 </tr>
+                <x-jet-modal  wire:model="popUpMessage">
+                    <div class="px-6 py-4">
+                        <div class="text-lg">
+
+                            Are You Shure To Delete This Record?
+                        </div>
+                        <div class="text-lg">
+
+                        </div>
+                        <div class="text-lg">
+
+                            <x-jet-button wire:click="delete({{ $post->id }})">Yes</x-jet-button>
+                            <x-jet-button wire:click="closeModal()">No</x-jet-button>
+                        </div>
+                    </div>
+
+                </x-jet-modal>
+                @endforeach
 
 
               </tbody>
@@ -51,6 +71,8 @@
 
 
                 <div class="mt-8">
+                    <form wire:submit.prevent="store" enctype="multipart/form-data">
+                       @csrf
                     <div class="mb-6">
                         <label class="mr-4 text-gray-700 font-bold inline-block mb-2" for="name">Title</label>
                         <input type="text" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"  wire:model="title" placeholder="Title" />
@@ -61,15 +83,16 @@
                       </div>
                       <div class="mb-6">
                         <label class="mr-4 text-gray-700 font-bold inline-block mb-2"  for="name">Category</label>
-                        <input type="text" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"  wire:model="category" placeholder="Content" />
+                        <input type="text" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"  wire:model="category_id" placeholder="Content" />
                       </div>
                       <div class="mb-6">
                         <label class="mr-4 text-gray-700 font-bold inline-block mb-2"  for="name">Image</label>
-                        <input type="text" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"  placeholder="Content" />
+                        <input type="file" class="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-indigo-400 rounded"  placeholder="" wire:model="image"/>
                       </div>
                       <div class="mb-6">
-                        <x-jet-button wire:click="store">Add</x-jet-button>
+                        <x-jet-button >Add</x-jet-button>
                       </div>
+                    </form>
 
                 </div>
 
@@ -82,5 +105,6 @@
             <x-jet-button wire:click="closeModal">Close</x-jet-button>
         </div>
     </x-jet-modal>
+
 
 </div>
