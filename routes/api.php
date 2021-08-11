@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('posts',[PostController::class,'getAllPost']);
 Route::get('categories',[PostController::class,'getAllCategory']);
+Route::get('users',[UserController::class,'getAllUser']);
+Route::middleware('auth:sanctum')->get('categories',[PostController::class,'getAllCategory']);
+
