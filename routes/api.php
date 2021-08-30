@@ -22,5 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('posts',[PostController::class,'getAllPost']);
 Route::get('categories',[PostController::class,'getAllCategory']);
 Route::get('users',[UserController::class,'getAllUser']);
+Route::get('pages',[PostController::class,'getAllPages']);
 Route::middleware('auth:sanctum')->get('categories',[PostController::class,'getAllCategory']);
+Route::post('posts',[PostController::class,'store']);
+Route::post('pages',[PostController::class,'addPages']);
 

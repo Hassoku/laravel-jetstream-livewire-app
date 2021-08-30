@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
     public function getAllUser(){
-        $users = User::all();
+        $users = User::with('posts')->get();
         $result = "";
         $users ? $result = response()->json($users) :  $result = response()->json("No Records Found");
         return $result;
